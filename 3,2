@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int c = 1;
+	int n;   //ввод необходимых переменных
+	int v;
+	int x;
+	std::cout << "запишите число с которым будут проводиться операции : ";
+	std::cin >> n;
+	int b = 0;
+	std::cout << "выберите действие \n 1-\n 2-\n :";
+	std::cin >> x;// получить необходимые данные для ответа на запрос
+	switch (x)
+	{
+	case (1)://выдает ответ по запросу о факториале числа
+		for (v = 1; v <= n; v++)
+		{
+			c = c * v;
+		}
+		std::cout << " факториал: " << c;
+		break;
+	case (2):// выдает ответ по запросу о последовательности
+		n = n + 1;
+		std::cout << "последовательность: ";
+		while (b < n - 1)
+		{
+			++b;
+			std::cout << b << " ";
+		}
+		break;
+	}
+	return 0;
+}
