@@ -1,13 +1,13 @@
 #include<iostream>
-using namespace std;  //директивы using для всех идентификаторов в пространстве имен 
-int fibonacci(int n)  // тип данных фибоначи
+using namespace std;  
+int fibonacci(int n)  
 {
 	if (n == 1 || n == 0) // тк f(0)=0 и f(1)=1   
-		return(n);// условия завершения 
+		return(n);
 	else
 		return(fibonacci(n - 1) + fibonacci(n - 2));  
 }
-int main()// переход к ввычислению 
+int main()
 {
 	int n, x = 0;
 	cout << "vvedi:";
@@ -16,7 +16,7 @@ int main()// переход к ввычислению
 		{
 			cout << " " << fibonacci(x);
 			x++;
-		}   // для вывода по условию
+		}   
 	cout << " "; 
 	return 0;
 }
