@@ -1,0 +1,13 @@
+#include<iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int a, b, c;
+	std::cout << "Введите первое число:" << std::endl;
+	std::cin >> a;
+	std::cout << "Введите второе число:" << std::endl;
+	std::cin >> b;
+	c = a + b;
+	std::cout << "сумма = " << c << std::endl;
+	return 0;
+}
