@@ -1,0 +1,29 @@
+#include<iostream>
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int a, b, c, n;
+	std::cout << "Введите первое число:" << std::endl;
+	std::cin >> a;
+	std::cout << "Введите второе число:" << std::endl;
+	std::cin >> b;
+	std::cout << "Что ввы хотите сделать, выберите цифру действия" << std::endl;
+    std::cout << "1) + (сложить)\n2) - (вычесть)\n3) * (умножить)\n4) : (поделить)" << std::endl;
+        std::cin >> n;
+    if (n == 1 || n == 2 || n == 3 || n == 4)
+    {
+        switch (n)
+        {
+        case(1):
+            std::cout << "сумма = "<<a+b; break;
+        case(2):
+            std::cout << "разность = "<<a-b; break;
+        case(3):
+            std::cout << "произведение = "<<a*b; break;
+        case(4):
+            std::cout << "частное = " << a / b; break;
+        }
+    }
+    else
+        std::cout << "error" << std::endl;
+}
