@@ -1,0 +1,199 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class car
+{
+public:
+
+	string marka;						//марка
+	string get_marka() { return marka; }
+
+	string model;						//модель
+	string get_model() { return model; }
+
+	string color;						//цвет
+	string get_color() { return color; }
+
+	string price;							//цена
+	string get_price() { return price; }
+
+	void set_info(string string_marka, string string_model, string string_color, string string_price)
+	{
+		price = string_price;
+		marka = string_marka;
+		model = string_model;
+		color = string_color;
+	}
+};
+
+class salon : public car
+{
+public:
+
+	string probeg;  //пробег 
+	string get_probeg() { return probeg; }
+
+	string rashod;  //расход
+	string get_rashod() { return rashod; }
+
+	string korobka;  //коробка
+	string get_korobka() { return korobka; }
+
+	void set_info1(string string_probeg, string string_rashod, string string_korobka )
+	{
+		probeg = string_probeg;
+		rashod = string_rashod;
+		korobka = string_korobka;
+	}
+};
+
+class sklad : public car
+{
+public:
+
+	string tent; //автомобиль в транспортировочном тенте или нет
+	string get_tent() { return tent; }
+
+	string hran; //сколько хранится
+	string get_hran() { return hran; }
+
+	string strana; //из какой страны
+	string get_strana() { return strana; }
+
+	void set_info2(string string_tent, string string_hran, string string_strana)
+	{
+		tent = string_tent;
+		hran = string_hran;
+		strana = string_strana;
+	}
+};
+
+int main()
+{
+	int x;
+	int z;
+	int c;
+	int v;
+	int b;
+
+	setlocale(LC_ALL, "ru");
+	
+	car car[6];
+	car[0].set_info("ford", "Shelby Mustang GT500 2014", "синий", "5 460 000");
+	car[1].set_info("Acura", "NSX 2020", "бордовый", "11 196 000");
+	car[2].set_info("Nissan", "240Z (S30)", "фиолетовый", "5 400 000");
+	car[3].set_info("Lexus", "LFA 2010", "белый", "27 000 000");
+	car[4].set_info("Nissan", "GT-R 2017", "оранжевый", "9 400 000");
+	car[5].set_info("Mazda", "RX-7 2002", "фиолетовый", "3 260 000");
+	
+	salon carsal[3];
+	carsal[0].set_info1("100 km", "22 литра на 100 км", "автоматическая");
+	carsal[1].set_info1("152 km", "15 литров на 100 км", "механическая");
+	carsal[2].set_info1("74 km", "12 литров на 100 км", "механическая");
+	
+	sklad carskl[6];
+	carskl[3].set_info2("под тентом", "1 месяц", "Канады");
+	carskl[4].set_info2("под тентом", "7 месяцев", "Японии");
+	carskl[5].set_info2("без тента", "3 месяца", "Японии");
+
+menu:
+	cout << "\nВ этом автосалоне находятся редкие автомобили, целых 6 экземпляров";
+	cout << "\nАвтомобили находятся на складе и в салоне, информацию об экземплярах в каком месте хотите уточнить? \n\n1) салон \n2) склад \n";
+	cin >> x;
+	
+	if (x == 1)
+	{
+vubor:
+		cout << "\nВ салоне находится 3 автомобиля, представлены марки";
+		cout << "\n" << "1) " << car[0].get_marka() << endl;
+		cout << "2) " << car[1].get_marka() << endl;
+		cout << "3) " << car[2].get_marka() << endl;
+		cout << "Информацию о модели какой марки вы хотели бы узнать?" << endl;
+		cout << "Укажите номер марки:" << endl;
+		cin >> z;
+
+		if (z == 1 || z == 2 || z == 3) 
+		{
+			z = --z;
+			cout << "\nВы выбрали марку " << car[z].get_marka() << endl;
+			cout << "Вот информация о ней: " << endl;
+			cout << car[z].get_marka() << " " << car[z].get_model() << endl;
+			cout << "Её цвет - " << car[z].get_color() << endl;
+			cout << "Коробка - " << carsal[z].get_korobka() << endl;
+			cout << "Расход топлива - " << carsal[z].get_rashod() << endl;
+			cout << "Её пробег - " << carsal[z].get_probeg() << endl;
+			cout << "Её стоимость в рублях - " << car[z].get_price() << endl;
+		vubor1:
+			cout << "\nЧтобы вернуться в меню, нажмите 1" << endl;
+			cin >> c;
+			if (c == 1)
+			{
+				goto menu;
+			}
+			else
+			{
+				cout << "\n" << "Error" << endl;
+				goto vubor1;
+			}
+		}
+
+		else
+		{
+			goto vubor;
+		}
+
+	}
+
+	if (x == 2)
+	{
+vubor3:
+		cout << "\nНа складе находится 3 автомобиля, представлены марки";
+		cout << "\n" << "1) " << car[3].get_marka() << endl;
+		cout << "2) " << car[4].get_marka() << endl;
+		cout << "3) " << car[5].get_marka() << endl;
+		cout << "Информацию о модели какой марки вы хотели бы узнать?" << endl;
+		cout << "Укажите номер марки:" << endl;
+		cin >> v;
+
+		if (v == 1 || v == 2 || v == 3)
+		{
+			v = ++v;
+			v = ++v;
+			cout << "\nВы выбрали марку " << car[v].get_marka() << endl;
+			cout << "Вот информация о ней: " << endl;
+			cout << car[v].get_marka() << " " << car[v].get_model() << endl;
+			cout << "Её цвет - " << car[v].get_color() << endl;
+			cout << "Хранится на складе - " << carskl[v].get_hran() << endl;
+			cout << "Привезена из - " << carskl[v].get_strana() << endl;
+			cout << "Защищена ли машина? - " << carskl[v].get_tent() << endl;
+			cout << "Её стоимость в рублях - " << car[v].get_price() << endl;
+
+		vubor4:
+			cout << "\nЧтобы вернуться в меню, нажмите 1" << endl;
+			cin >> b;
+			if (b == 1)
+			{
+				goto menu;
+			}
+			else
+			{
+				cout << "\n" << "Error" << endl;
+				goto vubor4;
+			}
+		}
+
+		else
+		{
+			goto vubor3;
+		}
+
+	}
+
+	else
+	{
+		cout << "\n" << "Error" << endl;
+		goto menu;
+	}
+
+}
