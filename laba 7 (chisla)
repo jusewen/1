@@ -1,0 +1,92 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int x;
+main:
+	cout << "\nПрограмма принимает числа меньше 10 000 \nВведите число: ";
+	cin >> x;
+
+	cout << "\n\nВаше число: " << " ";
+
+	if (x == 0)
+	{
+		cout << "Ноль\n ";
+	}
+
+	if (x < 0)
+	{
+		cout << "Минусовое число\n";
+	}
+	if (x > 0)
+	{
+		switch (x / 1000)
+		{
+		case 1: cout << "Одна Тысяча "; break;
+		case 2: cout << "Две Тысячи "; break;
+		case 3: cout << "Три Тысячи "; break;
+		case 4: cout << "Четыре Тысячи "; break;
+		case 5: cout << "Пять Тысяч "; break;
+		case 6: cout << "Шесть Тысяч "; break;
+		case 7: cout << "Семь Тысяч "; break;
+		case 8: cout << "Восемь Тысяч "; break;
+		case 9: cout << "Девять Тысяч "; break;
+		}
+		switch ((x % 1000) / 100)
+		{
+		case 1: cout << "Сто "; break;
+		case 2: cout << "Двести "; break;
+		case 3: cout << "Триста "; break;
+		case 4: cout << "Четыреста "; break;
+		case 5: cout << "Пятсот "; break;
+		case 6: cout << "Шестьсот "; break;
+		case 7: cout << "Семьсот "; break;
+		case 8: cout << "Восемьсот "; break;
+		case 9: cout << "Девятьсот "; break;
+		}
+		switch ((x % 100) / 10)
+		{
+		case 2: cout << "Двадцать "; break;
+		case 3: cout << "Тридцать "; break;
+		case 4: cout << "Сорок "; break;
+		case 5: cout << "Пятдесят "; break;
+		case 6: cout << "Шестьдесят "; break;
+		case 7: cout << "Семьдесят "; break;
+		case 8: cout << "Восемьдесят "; break;
+		case 9: cout << "Девяносто "; break;
+		}
+		if (x % 100 >= 10 & x % 100 < 20)
+		{
+			switch (x % 100)
+			{
+			case 10: cout << "Десять"; break;
+			case 11: cout << "Одинадцать"; break;
+			case 12: cout << "Двенадцать"; break;
+			case 13: cout << "Тринадцать"; break;
+			case 14: cout << "Четырнадцать"; break;
+			case 15: cout << "Пятнадцать"; break;
+			case 16: cout << "Шестнадцать"; break;
+			case 17: cout << "Семнадцать"; break;
+			case 18: cout << "Восемнадцать"; break;
+			case 19: cout << "Девятнадцать"; break;
+			}
+		}
+		else 
+		{
+			switch (x % 10)
+			{
+			case 1: cout << "Один\n"; break;
+			case 2: cout << "Два\n"; break;
+			case 3: cout << "Три\n"; break;
+			case 4: cout << "Четыре\n"; break;
+			case 5: cout << "Пять\n"; break;
+			case 6: cout << "Шесть\n"; break;
+			case 7: cout << "Семь\n"; break;
+			case 8: cout << "Восемь\n"; break;
+			case 9: cout << "Девять\n"; break;
+			}
+		}
+	}
+	goto main;
+}
